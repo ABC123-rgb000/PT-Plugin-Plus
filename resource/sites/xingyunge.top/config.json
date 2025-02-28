@@ -1,0 +1,51 @@
+{
+  "name": "星陨阁",
+  "description": "星陨阁，以国漫为主的PT站点",
+  "url": "https://xingyunge.top/",
+  "icon": "https://picture.agsv.top/123/2025/02/25/67bd5232171c2/IMG_202502255784_150x150.png",
+  "tags": ["动漫"],
+  "schema": "NexusPHP",
+  "host": "xingyunge.top",
+  "plugins": [
+    {
+      "name": "特殊插件",
+      "pages": ["/torrents.php"],
+      "scripts": ["/libs/album/album.js", "torrents.js"],
+      "styles": ["/libs/album/style.css"]
+    }
+  ],
+  "searchEntry": [
+    {
+      "entry": "/torrents.php?search=$key$",
+      "name": "全部",
+      "resultType": "html",
+      "parseScriptFile": "/schemas/NexusPHP/getSearchResult.js",
+      "resultSelector": "table.torrent_list:last > tbody > tr"
+    }
+  ],
+  "patterns": {
+    "torrentLinks": ["*://*/*"]
+  },
+  "parser": {
+    "downloadURL": "解析脚本内容"
+  },
+  "torrentTagSelectors": [
+    {
+      "name": "Free",
+      "selector": "img.pro_free",
+      "color": "blue"
+    }
+  ],
+  "categories": [
+    {
+      "entry": "*",
+      "result": "cat$id$=1",
+      "category": [
+        {
+          "id": 20,
+          "name": "原盘(Full BD)"
+        }
+      ]
+    }
+  ]
+}
